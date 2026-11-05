@@ -15,11 +15,11 @@
   <!-- Modal para ver imagen ampliada -->
   <div id="image-modal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-sm hidden flex items-center justify-center p-4 transition-all duration-300" onclick="closeModal()">
     <div class="relative max-w-4xl w-full max-h-[90vh] flex flex-col items-center justify-center" onclick="event.stopPropagation()">
-      <button onclick="closeModal()" class="absolute -top-12 right-0 text-white hover:text-amber-400 font-bold text-xl flex items-center gap-2 bg-slate-800/80 px-4 py-2 rounded-full border border-slate-700 transition-colors">
+      <button onclick="closeModal()" class="absolute -top-12 right-0 text-white hover:text-amber-400 font-bold text-xl flex items-center gap-2 bg-slate-800/80 px-4 py-2 rounded-full border border-slate-700 transition-colors cursor-pointer">
         <span>Cerrar</span>
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
       </button>
-      <img id="modal-img" src="" alt="Imagen ampliada" class="max-w-full max-h-[80vh] object-contain rounded-xl shadow-2xl border border-slate-700" oncontextmenu="return false;" dragstart="return false;" />
+      <img id="modal-img" src="" alt="Imagen ampliada" class="max-w-full max-h-[80vh] object-contain rounded-xl shadow-2xl border border-slate-700 select-none" />
       <p id="modal-caption" class="text-white text-center font-semibold mt-4 text-base md:text-lg bg-slate-900/80 px-6 py-2 rounded-full border border-slate-800"></p>
     </div>
   </div>
@@ -46,7 +46,7 @@
           <div class="border rounded-xl overflow-hidden bg-gray-50 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
             <div class="p-4">
               <div class="relative h-64 sm:h-72 bg-slate-50 rounded-lg flex flex-col items-center justify-center p-2 mb-3 border border-slate-200 overflow-hidden select-none cursor-pointer group" onclick="openModal('foto1.jpg', 'Camisa Sovereign Code')">
-                <img id="preview-1" src="foto1.jpg" alt="Camisa Sovereign Code Tucanes" class="w-full h-full object-contain rounded-md group-hover:scale-105 transition-transform duration-300" onerror="this.classList.add('hidden'); document.getElementById('placeholder-1').classList.remove('hidden');" oncontextmenu="return false;" dragstart="return false;" />
+                <img id="preview-1" src="foto1.jpg" alt="Camisa Sovereign Code Tucanes" class="w-full h-full object-contain rounded-md group-hover:scale-105 transition-transform duration-300" onerror="this.classList.add('hidden'); document.getElementById('placeholder-1').classList.remove('hidden');" />
                 <div class="absolute bottom-2 right-2 bg-slate-900/70 text-white p-1.5 rounded-lg opacity-80 group-hover:opacity-100 transition-opacity">
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
                 </div>
@@ -56,12 +56,22 @@
                 </div>
               </div>
               <h3 class="font-bold text-slate-900 text-lg">Camisa Sovereign Code</h3>
-<!-- ... existing code -->
+              <p class="text-xs text-slate-500 font-medium mt-1">Azul Celeste • Estampa Tucanes</p>
+              <div class="mt-3 flex items-center justify-between text-xs">
+                <span class="bg-slate-200 px-2.5 py-1 rounded-md text-slate-700 font-semibold">Talla XL</span>
+                <span class="text-green-600 font-bold">Nuevo c/etiqueta</span>
+              </div>
+            </div>
+            <div class="bg-slate-900 text-white p-3 text-center text-sm font-bold tracking-wide">
+              $35 USD / €37 (BCV)
+            </div>
+          </div>
+
           <!-- Card 2 -->
-          <div class="border rounded-xl overflow-hidden bg-gray-50 flex flex-col justify-between shadow-sm">
+          <div class="border rounded-xl overflow-hidden bg-gray-50 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
             <div class="p-4">
               <div class="relative h-64 sm:h-72 bg-slate-50 rounded-lg flex flex-col items-center justify-center p-2 mb-3 border border-slate-200 overflow-hidden select-none cursor-pointer group" onclick="openModal('rvca.jpg', 'Franela RVCA Sport')">
-                <img id="preview-2" src="rvca.jpg" alt="Franela RVCA Sport" class="w-full h-full object-contain rounded-md group-hover:scale-105 transition-transform duration-300" onerror="this.classList.add('hidden'); document.getElementById('placeholder-2').classList.remove('hidden');" oncontextmenu="return false;" dragstart="return false;" />
+                <img id="preview-2" src="rvca.jpg" alt="Franela RVCA Sport" class="w-full h-full object-contain rounded-md group-hover:scale-105 transition-transform duration-300" onerror="this.classList.add('hidden'); document.getElementById('placeholder-2').classList.remove('hidden');" />
                 <div class="absolute bottom-2 right-2 bg-slate-900/70 text-white p-1.5 rounded-lg opacity-80 group-hover:opacity-100 transition-opacity">
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
                 </div>
@@ -70,13 +80,23 @@
                   <span class="text-xs font-bold uppercase tracking-wide text-slate-600">Imagen no disponible</span>
                 </div>
               </div>
-              <h3 class="font-bold text-slate-900">Franela RVCA Sport</h3>
-<!-- ... existing code -->
+              <h3 class="font-bold text-slate-900 text-lg">Franela RVCA Sport</h3>
+              <p class="text-xs text-slate-500 font-medium mt-1">Negro • Minimalista</p>
+              <div class="mt-3 flex items-center justify-between text-xs">
+                <span class="bg-slate-200 px-2.5 py-1 rounded-md text-slate-700 font-semibold">Talla L</span>
+                <span class="text-green-600 font-bold">Nuevo</span>
+              </div>
+            </div>
+            <div class="bg-slate-900 text-white p-3 text-center text-sm font-bold tracking-wide">
+              $40 USD / €42 (BCV)
+            </div>
+          </div>
+
           <!-- Card 3 -->
-          <div class="border rounded-xl overflow-hidden bg-gray-50 flex flex-col justify-between shadow-sm">
+          <div class="border rounded-xl overflow-hidden bg-gray-50 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
             <div class="p-4">
               <div class="relative h-64 sm:h-72 bg-slate-50 rounded-lg flex flex-col items-center justify-center p-2 mb-3 border border-slate-200 overflow-hidden select-none cursor-pointer group" onclick="openModal('Quik_gris.jpg', 'Franela Quiksilver Palm')">
-                <img id="preview-3" src="Quik_gris.jpg" alt="Franela Quiksilver Palm" class="w-full h-full object-contain rounded-md group-hover:scale-105 transition-transform duration-300" onerror="this.classList.add('hidden'); document.getElementById('placeholder-3').classList.remove('hidden');" oncontextmenu="return false;" dragstart="return false;" />
+                <img id="preview-3" src="Quik_gris.jpg" alt="Franela Quiksilver Palm" class="w-full h-full object-contain rounded-md group-hover:scale-105 transition-transform duration-300" onerror="this.classList.add('hidden'); document.getElementById('placeholder-3').classList.remove('hidden');" />
                 <div class="absolute bottom-2 right-2 bg-slate-900/70 text-white p-1.5 rounded-lg opacity-80 group-hover:opacity-100 transition-opacity">
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
                 </div>
@@ -85,13 +105,23 @@
                   <span class="text-xs font-bold uppercase tracking-wide text-slate-600">Imagen no disponible</span>
                 </div>
               </div>
-              <h3 class="font-bold text-slate-900">Franela Quiksilver Palm</h3>
-<!-- ... existing code -->
+              <h3 class="font-bold text-slate-900 text-lg">Franela Quiksilver Palm</h3>
+              <p class="text-xs text-slate-500 font-medium mt-1">Gris Grafito • Estampa Palmera</p>
+              <div class="mt-3 flex items-center justify-between text-xs">
+                <span class="bg-slate-200 px-2.5 py-1 rounded-md text-slate-700 font-semibold">Talla M</span>
+                <span class="text-green-600 font-bold">Nuevo c/etiqueta</span>
+              </div>
+            </div>
+            <div class="bg-slate-900 text-white p-3 text-center text-sm font-bold tracking-wide">
+              $30 USD / €32 (BCV)
+            </div>
+          </div>
+
           <!-- Card 4 -->
-          <div class="border rounded-xl overflow-hidden bg-gray-50 flex flex-col justify-between shadow-sm">
+          <div class="border rounded-xl overflow-hidden bg-gray-50 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
             <div class="p-4">
               <div class="relative h-64 sm:h-72 bg-slate-50 rounded-lg flex flex-col items-center justify-center p-2 mb-3 border border-slate-200 overflow-hidden select-none cursor-pointer group" onclick="openModal('frane_billa.jpg', 'Tank Top Billabong')">
-                <img id="preview-4" src="frane_billa.jpg" alt="Tank Top Billabong" class="w-full h-full object-contain rounded-md group-hover:scale-105 transition-transform duration-300" onerror="this.classList.add('hidden'); document.getElementById('placeholder-4').classList.remove('hidden');" oncontextmenu="return false;" dragstart="return false;" />
+                <img id="preview-4" src="frane_billa.jpg" alt="Tank Top Billabong" class="w-full h-full object-contain rounded-md group-hover:scale-105 transition-transform duration-300" onerror="this.classList.add('hidden'); document.getElementById('placeholder-4').classList.remove('hidden');" />
                 <div class="absolute bottom-2 right-2 bg-slate-900/70 text-white p-1.5 rounded-lg opacity-80 group-hover:opacity-100 transition-opacity">
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
                 </div>
@@ -100,13 +130,23 @@
                   <span class="text-xs font-bold uppercase tracking-wide text-slate-600">Imagen no disponible</span>
                 </div>
               </div>
-              <h3 class="font-bold text-slate-900">Tank Top Billabong "Since 1973"</h3>
-<!-- ... existing code -->
+              <h3 class="font-bold text-slate-900 text-lg">Tank Top Billabong "Since 1973"</h3>
+              <p class="text-xs text-slate-500 font-medium mt-1">Verde Oliva • Esqueleto</p>
+              <div class="mt-3 flex items-center justify-between text-xs">
+                <span class="bg-slate-200 px-2.5 py-1 rounded-md text-slate-700 font-semibold">Talla L</span>
+                <span class="text-green-600 font-bold">Nuevo c/etiqueta</span>
+              </div>
+            </div>
+            <div class="bg-slate-900 text-white p-3 text-center text-sm font-bold tracking-wide">
+              $25 USD / €27 (BCV)
+            </div>
+          </div>
+
           <!-- Card 5 -->
-          <div class="border rounded-xl overflow-hidden bg-gray-50 flex flex-col justify-between shadow-sm">
+          <div class="border rounded-xl overflow-hidden bg-gray-50 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
             <div class="p-4">
               <div class="relative h-64 sm:h-72 bg-slate-50 rounded-lg flex flex-col items-center justify-center p-2 mb-3 border border-slate-200 overflow-hidden select-none cursor-pointer group" onclick="openModal('franelas_volcom.jpg', 'Franelas Volcom (Set)')">
-                <img id="preview-5" src="franelas_volcom.jpg" alt="Franelas Volcom" class="w-full h-full object-contain rounded-md group-hover:scale-105 transition-transform duration-300" onerror="this.classList.add('hidden'); document.getElementById('placeholder-5').classList.remove('hidden');" oncontextmenu="return false;" dragstart="return false;" />
+                <img id="preview-5" src="franelas_volcom.jpg" alt="Franelas Volcom" class="w-full h-full object-contain rounded-md group-hover:scale-105 transition-transform duration-300" onerror="this.classList.add('hidden'); document.getElementById('placeholder-5').classList.remove('hidden');" />
                 <div class="absolute bottom-2 right-2 bg-slate-900/70 text-white p-1.5 rounded-lg opacity-80 group-hover:opacity-100 transition-opacity">
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
                 </div>
@@ -115,13 +155,23 @@
                   <span class="text-xs font-bold uppercase tracking-wide text-slate-600">Imagen no disponible</span>
                 </div>
               </div>
-              <h3 class="font-bold text-slate-900">Franelas Volcom (Set)</h3>
-<!-- ... existing code -->
+              <h3 class="font-bold text-slate-900 text-lg">Franelas Volcom (Set)</h3>
+              <p class="text-xs text-slate-500 font-medium mt-1">Blanco (L) / Marino & Verde (M)</p>
+              <div class="mt-3 flex items-center justify-between text-xs">
+                <span class="bg-slate-200 px-2.5 py-1 rounded-md text-slate-700 font-semibold">Tallas M / L</span>
+                <span class="text-green-600 font-bold">Nuevos</span>
+              </div>
+            </div>
+            <div class="bg-slate-900 text-white p-3 text-center text-sm font-bold tracking-wide">
+              $28 USD / €30 (BCV) c/u
+            </div>
+          </div>
+
           <!-- Card 6 -->
-          <div class="border rounded-xl overflow-hidden bg-gray-50 flex flex-col justify-between shadow-sm">
+          <div class="border rounded-xl overflow-hidden bg-gray-50 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
             <div class="p-4">
               <div class="relative h-64 sm:h-72 bg-slate-50 rounded-lg flex flex-col items-center justify-center p-2 mb-3 border border-slate-200 overflow-hidden select-none cursor-pointer group" onclick="openModal('franela_lee.jpg', 'Remera Lee Script')">
-                <img id="preview-6" src="franela_lee.jpg" alt="Remera Lee Script" class="w-full h-full object-contain rounded-md group-hover:scale-105 transition-transform duration-300" onerror="this.classList.add('hidden'); document.getElementById('placeholder-6').classList.remove('hidden');" oncontextmenu="return false;" dragstart="return false;" />
+                <img id="preview-6" src="franela_lee.jpg" alt="Remera Lee Script" class="w-full h-full object-contain rounded-md group-hover:scale-105 transition-transform duration-300" onerror="this.classList.add('hidden'); document.getElementById('placeholder-6').classList.remove('hidden');" />
                 <div class="absolute bottom-2 right-2 bg-slate-900/70 text-white p-1.5 rounded-lg opacity-80 group-hover:opacity-100 transition-opacity">
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
                 </div>
@@ -130,13 +180,23 @@
                   <span class="text-xs font-bold uppercase tracking-wide text-slate-600">Imagen no disponible</span>
                 </div>
               </div>
-              <h3 class="font-bold text-slate-900">Remera Lee Script</h3>
-<!-- ... existing code -->
+              <h3 class="font-bold text-slate-900 text-lg">Remera Lee Script</h3>
+              <p class="text-xs text-slate-500 font-medium mt-1">Negro • 100% Algodón</p>
+              <div class="mt-3 flex items-center justify-between text-xs">
+                <span class="bg-slate-200 px-2.5 py-1 rounded-md text-slate-700 font-semibold">Talla M</span>
+                <span class="text-green-600 font-bold">Nuevo</span>
+              </div>
+            </div>
+            <div class="bg-slate-900 text-white p-3 text-center text-sm font-bold tracking-wide">
+              $28 USD / €30 (BCV)
+            </div>
+          </div>
+
           <!-- Card 7 -->
-          <div class="border rounded-xl overflow-hidden bg-gray-50 flex flex-col justify-between shadow-sm">
+          <div class="border rounded-xl overflow-hidden bg-gray-50 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
             <div class="p-4">
               <div class="relative h-64 sm:h-72 bg-slate-50 rounded-lg flex flex-col items-center justify-center p-2 mb-3 border border-slate-200 overflow-hidden select-none cursor-pointer group" onclick="openModal('frane_florida.jpg', 'Franela Florida Gymnastics')">
-                <img id="preview-7" src="frane_florida.jpg" alt="Franela Florida Gymnastics" class="w-full h-full object-contain rounded-md group-hover:scale-105 transition-transform duration-300" onerror="this.classList.add('hidden'); document.getElementById('placeholder-7').classList.remove('hidden');" oncontextmenu="return false;" dragstart="return false;" />
+                <img id="preview-7" src="frane_florida.jpg" alt="Franela Florida Gymnastics" class="w-full h-full object-contain rounded-md group-hover:scale-105 transition-transform duration-300" onerror="this.classList.add('hidden'); document.getElementById('placeholder-7').classList.remove('hidden');" />
                 <div class="absolute bottom-2 right-2 bg-slate-900/70 text-white p-1.5 rounded-lg opacity-80 group-hover:opacity-100 transition-opacity">
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
                 </div>
@@ -145,13 +205,23 @@
                   <span class="text-xs font-bold uppercase tracking-wide text-slate-600">Imagen no disponible</span>
                 </div>
               </div>
-              <h3 class="font-bold text-slate-900">Franela Florida Gymnastics</h3>
-<!-- ... existing code -->
+              <h3 class="font-bold text-slate-900 text-lg">Franela Florida Gymnastics</h3>
+              <p class="text-xs text-slate-500 font-medium mt-1">Negro • Estampa Rosa</p>
+              <div class="mt-3 flex items-center justify-between text-xs">
+                <span class="bg-slate-200 px-2.5 py-1 rounded-md text-slate-700 font-semibold">Talla M</span>
+                <span class="text-green-600 font-bold">Nuevo</span>
+              </div>
+            </div>
+            <div class="bg-slate-900 text-white p-3 text-center text-sm font-bold tracking-wide">
+              $20 USD / €22 (BCV)
+            </div>
+          </div>
+
           <!-- Card 8 -->
-          <div class="border rounded-xl overflow-hidden bg-gray-50 flex flex-col justify-between shadow-sm">
+          <div class="border rounded-xl overflow-hidden bg-gray-50 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
             <div class="p-4">
               <div class="relative h-64 sm:h-72 bg-slate-50 rounded-lg flex flex-col items-center justify-center p-2 mb-3 border border-slate-200 overflow-hidden select-none cursor-pointer group" onclick="openModal('gorra_billa.jpg', 'Gorra Camionera Billabong')">
-                <img id="preview-8" src="gorra_billa.jpg" alt="Gorra Billabong" class="w-full h-full object-contain rounded-md group-hover:scale-105 transition-transform duration-300" onerror="this.classList.add('hidden'); document.getElementById('placeholder-8').classList.remove('hidden');" oncontextmenu="return false;" dragstart="return false;" />
+                <img id="preview-8" src="gorra_billa.jpg" alt="Gorra Billabong" class="w-full h-full object-contain rounded-md group-hover:scale-105 transition-transform duration-300" onerror="this.classList.add('hidden'); document.getElementById('placeholder-8').classList.remove('hidden');" />
                 <div class="absolute bottom-2 right-2 bg-slate-900/70 text-white p-1.5 rounded-lg opacity-80 group-hover:opacity-100 transition-opacity">
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
                 </div>
@@ -160,13 +230,23 @@
                   <span class="text-xs font-bold uppercase tracking-wide text-slate-600">Imagen no disponible</span>
                 </div>
               </div>
-              <h3 class="font-bold text-slate-900">Gorra Camionera Billabong</h3>
-<!-- ... existing code -->
+              <h3 class="font-bold text-slate-900 text-lg">Gorra Camionera Billabong</h3>
+              <p class="text-xs text-slate-500 font-medium mt-1">Negra • Estilo Trucker</p>
+              <div class="mt-3 flex items-center justify-between text-xs">
+                <span class="bg-slate-200 px-2.5 py-1 rounded-md text-slate-700 font-semibold">Regulable</span>
+                <span class="text-green-600 font-bold">Nuevo</span>
+              </div>
+            </div>
+            <div class="bg-slate-900 text-white p-3 text-center text-sm font-bold tracking-wide">
+              $25 USD / €27 (BCV)
+            </div>
+          </div>
+
           <!-- Card 9 -->
-          <div class="border rounded-xl overflow-hidden bg-gray-50 flex flex-col justify-between shadow-sm">
+          <div class="border rounded-xl overflow-hidden bg-gray-50 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
             <div class="p-4">
               <div class="relative h-64 sm:h-72 bg-slate-50 rounded-lg flex flex-col items-center justify-center p-2 mb-3 border border-slate-200 overflow-hidden select-none cursor-pointer group" onclick="openModal('pasa_mont.jpg', 'Gorro de Lana (Beanie)')">
-                <img id="preview-9" src="pasa_mont.jpg" alt="Gorro Beanie" class="w-full h-full object-contain rounded-md group-hover:scale-105 transition-transform duration-300" onerror="this.classList.add('hidden'); document.getElementById('placeholder-9').classList.remove('hidden');" oncontextmenu="return false;" dragstart="return false;" />
+                <img id="preview-9" src="pasa_mont.jpg" alt="Gorro Beanie" class="w-full h-full object-contain rounded-md group-hover:scale-105 transition-transform duration-300" onerror="this.classList.add('hidden'); document.getElementById('placeholder-9').classList.remove('hidden');" />
                 <div class="absolute bottom-2 right-2 bg-slate-900/70 text-white p-1.5 rounded-lg opacity-80 group-hover:opacity-100 transition-opacity">
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
                 </div>
@@ -175,13 +255,23 @@
                   <span class="text-xs font-bold uppercase tracking-wide text-slate-600">Imagen no disponible</span>
                 </div>
               </div>
-              <h3 class="font-bold text-slate-900">Gorro de Lana (Beanie)</h3>
-<!-- ... existing code -->
+              <h3 class="font-bold text-slate-900 text-lg">Gorro de Lana (Beanie)</h3>
+              <p class="text-xs text-slate-500 font-medium mt-1">Azul Marino • Tejido adaptable</p>
+              <div class="mt-3 flex items-center justify-between text-xs">
+                <span class="bg-slate-200 px-2.5 py-1 rounded-md text-slate-700 font-semibold">Talla Única</span>
+                <span class="text-green-600 font-bold">Nuevo</span>
+              </div>
+            </div>
+            <div class="bg-slate-900 text-white p-3 text-center text-sm font-bold tracking-wide">
+              $15 USD / €17 (BCV)
+            </div>
+          </div>
+
           <!-- Card 10 -->
-          <div class="border rounded-xl overflow-hidden bg-gray-50 flex flex-col justify-between shadow-sm">
+          <div class="border rounded-xl overflow-hidden bg-gray-50 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
             <div class="p-4">
               <div class="relative h-64 sm:h-72 bg-slate-50 rounded-lg flex flex-col items-center justify-center p-2 mb-3 border border-slate-200 overflow-hidden select-none cursor-pointer group" onclick="openModal('rbx_gris.jpg', 'Short Deportivo RBX Training')">
-                <img id="preview-10" src="rbx_gris.jpg" alt="Short RBX" class="w-full h-full object-contain rounded-md group-hover:scale-105 transition-transform duration-300" onerror="this.classList.add('hidden'); document.getElementById('placeholder-10').classList.remove('hidden');" oncontextmenu="return false;" dragstart="return false;" />
+                <img id="preview-10" src="rbx_gris.jpg" alt="Short RBX" class="w-full h-full object-contain rounded-md group-hover:scale-105 transition-transform duration-300" onerror="this.classList.add('hidden'); document.getElementById('placeholder-10').classList.remove('hidden');" />
                 <div class="absolute bottom-2 right-2 bg-slate-900/70 text-white p-1.5 rounded-lg opacity-80 group-hover:opacity-100 transition-opacity">
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
                 </div>
@@ -190,13 +280,23 @@
                   <span class="text-xs font-bold uppercase tracking-wide text-slate-600">Imagen no disponible</span>
                 </div>
               </div>
-              <h3 class="font-bold text-slate-900">Short Deportivo RBX Training</h3>
-<!-- ... existing code -->
+              <h3 class="font-bold text-slate-900 text-lg">Short Deportivo RBX Training</h3>
+              <p class="text-xs text-slate-500 font-medium mt-1">Gris Claro • Secado Rápido</p>
+              <div class="mt-3 flex items-center justify-between text-xs">
+                <span class="bg-slate-200 px-2.5 py-1 rounded-md text-slate-700 font-semibold">Talla M</span>
+                <span class="text-green-600 font-bold">Nuevo c/etiqueta</span>
+              </div>
+            </div>
+            <div class="bg-slate-900 text-white p-3 text-center text-sm font-bold tracking-wide">
+              $30 USD / €32 (BCV)
+            </div>
+          </div>
+
           <!-- Card 11 -->
-          <div class="border rounded-xl overflow-hidden bg-gray-50 flex flex-col justify-between shadow-sm">
+          <div class="border rounded-xl overflow-hidden bg-gray-50 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
             <div class="p-4">
               <div class="relative h-64 sm:h-72 bg-slate-50 rounded-lg flex flex-col items-center justify-center p-2 mb-3 border border-slate-200 overflow-hidden select-none cursor-pointer group" onclick="openModal('foto11.jpg', 'Short Hurley Bandera EE.UU.')">
-                <img id="preview-11" src="foto11.jpg" alt="Short Hurley Bandera EE.UU." class="w-full h-full object-contain rounded-md group-hover:scale-105 transition-transform duration-300" onerror="this.classList.add('hidden'); document.getElementById('placeholder-11').classList.remove('hidden');" oncontextmenu="return false;" dragstart="return false;" />
+                <img id="preview-11" src="foto11.jpg" alt="Short Hurley Bandera EE.UU." class="w-full h-full object-contain rounded-md group-hover:scale-105 transition-transform duration-300" onerror="this.classList.add('hidden'); document.getElementById('placeholder-11').classList.remove('hidden');" />
                 <div class="absolute bottom-2 right-2 bg-slate-900/70 text-white p-1.5 rounded-lg opacity-80 group-hover:opacity-100 transition-opacity">
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
                 </div>
@@ -205,13 +305,23 @@
                   <span class="text-xs font-bold uppercase tracking-wide text-slate-600">Imagen no disponible</span>
                 </div>
               </div>
-              <h3 class="font-bold text-slate-900">Short Hurley Bandera EE.UU.</h3>
-<!-- ... existing code -->
+              <h3 class="font-bold text-slate-900 text-lg">Short Hurley Bandera EE.UU.</h3>
+              <p class="text-xs text-slate-500 font-medium mt-1">Infantil / Bebé • Boardshort</p>
+              <div class="mt-3 flex items-center justify-between text-xs">
+                <span class="bg-slate-200 px-2.5 py-1 rounded-md text-slate-700 font-semibold">Talla 4</span>
+                <span class="text-green-600 font-bold">Nuevo</span>
+              </div>
+            </div>
+            <div class="bg-slate-900 text-white p-3 text-center text-sm font-bold tracking-wide">
+              $20 USD / €22 (BCV)
+            </div>
+          </div>
+
           <!-- Card 12 -->
-          <div class="border rounded-xl overflow-hidden bg-gray-50 flex flex-col justify-between shadow-sm">
+          <div class="border rounded-xl overflow-hidden bg-gray-50 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
             <div class="p-4">
               <div class="relative h-64 sm:h-72 bg-slate-50 rounded-lg flex flex-col items-center justify-center p-2 mb-3 border border-slate-200 overflow-hidden select-none cursor-pointer group" onclick="openModal('franelas_hotwe.jpg', 'Remeras Hot Wheels & Cars')">
-                <img id="preview-12" src="franelas_hotwe.jpg" alt="Franelas Hot Wheels & Cars" class="w-full h-full object-contain rounded-md group-hover:scale-105 transition-transform duration-300" onerror="this.classList.add('hidden'); document.getElementById('placeholder-12').classList.remove('hidden');" oncontextmenu="return false;" dragstart="return false;" />
+                <img id="preview-12" src="franelas_hotwe.jpg" alt="Franelas Hot Wheels & Cars" class="w-full h-full object-contain rounded-md group-hover:scale-105 transition-transform duration-300" onerror="this.classList.add('hidden'); document.getElementById('placeholder-12').classList.remove('hidden');" />
                 <div class="absolute bottom-2 right-2 bg-slate-900/70 text-white p-1.5 rounded-lg opacity-80 group-hover:opacity-100 transition-opacity">
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
                 </div>
@@ -220,8 +330,21 @@
                   <span class="text-xs font-bold uppercase tracking-wide text-slate-600">Imagen no disponible</span>
                 </div>
               </div>
-              <h3 class="font-bold text-slate-900">Remeras Hot Wheels & Cars</h3>
-<!-- ... existing code -->
+              <h3 class="font-bold text-slate-900 text-lg">Remeras Hot Wheels & Cars</h3>
+              <p class="text-xs text-slate-500 font-medium mt-1">Infantil • Diseños Oficiales</p>
+              <div class="mt-3 flex items-center justify-between text-xs">
+                <span class="bg-slate-200 px-2.5 py-1 rounded-md text-slate-700 font-semibold">S / M / L</span>
+                <span class="text-green-600 font-bold">Nuevos</span>
+              </div>
+            </div>
+            <div class="bg-slate-900 text-white p-3 text-center text-sm font-bold tracking-wide">
+              $20 USD / €22 (BCV) c/u
+            </div>
+          </div>
+
+        </div>
+      </section>
+
     </main>
 
     <!-- Footer -->
