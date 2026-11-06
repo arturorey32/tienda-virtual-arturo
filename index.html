@@ -19,7 +19,7 @@
   <script>
     // ⚠️ REEMPLAZA ESTE NÚMERO POR TU NÚMERO REAL DE WHATSAPP CON CÓDIGO DE PAÍS (Sin el signo + ni espacios)
     // Ejemplo para Venezuela (58): '584121234567'
-    const MI_TELEFONO_WHATSAPP = '584241144643'; 
+    const MI_TELEFONO_WHATSAPP = '584120000000'; 
 
     function sendWhatsApp(productTitle, size, price) {
       const mensaje = `Hola! Me interesa comprar este producto de tu catálogo:\n\n📌 *${productTitle}*\n📏 *Talla:* ${size}\n💵 *Precio:* ${price}\n\n¿Aún lo tienes disponible?`;
@@ -77,7 +77,6 @@
     <div class="bg-slate-950/80 border-b border-slate-800/80 px-4 py-3 text-center text-xs sm:text-sm text-slate-400 flex flex-wrap justify-center items-center gap-4 sm:gap-8">
       <span class="flex items-center gap-2"><i class="fa-solid fa-truck-fast text-amber-400"></i> Envíos Rápidos y Seguros</span>
       <span class="flex items-center gap-2"><i class="fa-solid fa-shield-halved text-emerald-400"></i> 100% Originales</span>
-      <span class="flex items-center gap-2"><i class="fa-solid fa-bolt text-sky-400"></i> Los mejores precios</span>
     </div>
 
     <!-- Content -->
@@ -94,12 +93,12 @@
         </h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
 
-          <!-- Card 1 -->
-          <div class="product-card border border-slate-800 rounded-2xl overflow-hidden bg-slate-950/60 hover:bg-slate-950 flex flex-col justify-between shadow-lg hover:shadow-2xl hover:border-amber-500/50 transition-all duration-300 group">
+          <!-- Card 1: Camisa Sovereign Code (VENDIDA) -->
+          <div class="product-card border border-slate-800 rounded-2xl overflow-hidden bg-slate-950/60 flex flex-col justify-between shadow-lg opacity-75 group">
             <div class="p-4">
-              <div class="relative h-64 sm:h-72 bg-slate-900 rounded-xl flex flex-col items-center justify-center p-2 mb-3 border border-slate-800 overflow-hidden select-none cursor-pointer" onclick="openModal('foto1.jpg', 'Camisa Sovereign Code')">
-                <span class="absolute top-2 left-2 z-10 bg-amber-500 text-slate-950 font-black text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-md shadow-md">Destacado</span>
-                <img id="preview-1" src="foto1.jpg" alt="Camisa Sovereign Code Tucanes" class="w-full h-full object-contain rounded-lg group-hover:scale-105 transition-transform duration-300" onerror="this.classList.add('hidden'); document.getElementById('placeholder-1').classList.remove('hidden');" />
+              <div class="relative h-64 sm:h-72 bg-slate-900 rounded-xl flex flex-col items-center justify-center p-2 mb-3 border border-slate-800 overflow-hidden select-none cursor-pointer" onclick="openModal('Tucanes.jpg', 'Camisa Sovereign Code - VENDIDO')">
+                <span class="absolute top-2 left-2 z-10 bg-red-600 text-white font-black text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-md shadow-md">VENDIDO</span>
+                <img id="preview-1" src="Tucanes.jpg" alt="Camisa Sovereign Code Tucanes" class="w-full h-full object-contain rounded-lg grayscale" onerror="this.classList.add('hidden'); document.getElementById('placeholder-1').classList.remove('hidden');" />
                 <div class="absolute bottom-2 right-2 bg-slate-900/80 text-amber-400 p-2 rounded-xl opacity-80 group-hover:opacity-100 transition-opacity border border-slate-700 shadow-lg flex items-center gap-1.5 text-xs font-bold">
                   <i class="fa-solid fa-magnifying-glass-plus"></i> Ampliar
                 </div>
@@ -108,17 +107,17 @@
                   <span class="text-xs font-bold uppercase tracking-wide text-slate-500">Imagen no disponible</span>
                 </div>
               </div>
-              <h3 class="font-bold text-white text-lg group-hover:text-amber-400 transition-colors">Camisa Sovereign Code</h3>
-              <p class="text-xs text-slate-400 font-medium mt-1">Azul Celeste • Estampa Tucanes</p>
+              <h3 class="font-bold text-slate-400 text-lg line-through">Camisa Sovereign Code</h3>
+              <p class="text-xs text-slate-500 font-medium mt-1">Azul Celeste • Estampa Tucanes</p>
               <div class="mt-3 flex items-center justify-between text-xs">
-                <span class="bg-slate-800 px-3 py-1 rounded-lg text-slate-300 font-bold border border-slate-700">Talla XL</span>
-                <span class="text-emerald-400 font-bold flex items-center gap-1"><i class="fa-solid fa-circle-check"></i> Nuevo c/etiqueta</span>
+                <span class="bg-slate-800 px-3 py-1 rounded-lg text-slate-500 font-bold border border-slate-700">Talla XL</span>
+                <span class="text-red-400 font-bold flex items-center gap-1"><i class="fa-solid fa-circle-xmark"></i> Agotado</span>
               </div>
             </div>
             <div class="p-3 bg-slate-900 border-t border-slate-800/80 flex items-center justify-between gap-2">
-              <div class="text-amber-400 font-black text-base">$35 <span class="text-xs text-slate-400 font-normal">/ €37 (BCV)</span></div>
-              <button onclick="sendWhatsApp('Camisa Sovereign Code', 'XL', '$35 / €37 BCV')" class="bg-emerald-600 hover:bg-emerald-500 text-white px-3 py-1.5 rounded-xl text-xs font-bold transition-all shadow-md flex items-center gap-1.5 cursor-pointer">
-                <i class="fa-brands fa-whatsapp text-sm"></i> Pedir
+              <div class="text-slate-500 font-black text-base line-through">$35</div>
+              <button disabled class="bg-slate-800 text-slate-500 px-3 py-1.5 rounded-xl text-xs font-bold border border-slate-700 cursor-not-allowed flex items-center gap-1.5">
+                <i class="fa-solid fa-ban text-sm"></i> No Disponible
               </button>
             </div>
           </div>
@@ -144,8 +143,8 @@
               </div>
             </div>
             <div class="p-3 bg-slate-900 border-t border-slate-800/80 flex items-center justify-between gap-2">
-              <div class="text-amber-400 font-black text-base">$40 <span class="text-xs text-slate-400 font-normal">/ €42 (BCV)</span></div>
-              <button onclick="sendWhatsApp('Franela RVCA Sport', 'L', '$40 / €42 BCV')" class="bg-emerald-600 hover:bg-emerald-500 text-white px-3 py-1.5 rounded-xl text-xs font-bold transition-all shadow-md flex items-center gap-1.5 cursor-pointer">
+              <div class="text-amber-400 font-black text-base">$40</div>
+              <button onclick="sendWhatsApp('Franela RVCA Sport', 'L', '$40')" class="bg-emerald-600 hover:bg-emerald-500 text-white px-3 py-1.5 rounded-xl text-xs font-bold transition-all shadow-md flex items-center gap-1.5 cursor-pointer">
                 <i class="fa-brands fa-whatsapp text-sm"></i> Pedir
               </button>
             </div>
@@ -172,18 +171,19 @@
               </div>
             </div>
             <div class="p-3 bg-slate-900 border-t border-slate-800/80 flex items-center justify-between gap-2">
-              <div class="text-amber-400 font-black text-base">$30 <span class="text-xs text-slate-400 font-normal">/ €32 (BCV)</span></div>
-              <button onclick="sendWhatsApp('Franela Quiksilver Palm', 'M', '$30 / €32 BCV')" class="bg-emerald-600 hover:bg-emerald-500 text-white px-3 py-1.5 rounded-xl text-xs font-bold transition-all shadow-md flex items-center gap-1.5 cursor-pointer">
+              <div class="text-amber-400 font-black text-base">$30</div>
+              <button onclick="sendWhatsApp('Franela Quiksilver Palm', 'M', '$30')" class="bg-emerald-600 hover:bg-emerald-500 text-white px-3 py-1.5 rounded-xl text-xs font-bold transition-all shadow-md flex items-center gap-1.5 cursor-pointer">
                 <i class="fa-brands fa-whatsapp text-sm"></i> Pedir
               </button>
             </div>
           </div>
 
-          <!-- Card 4 -->
-          <div class="product-card border border-slate-800 rounded-2xl overflow-hidden bg-slate-950/60 hover:bg-slate-950 flex flex-col justify-between shadow-lg hover:shadow-2xl hover:border-amber-500/50 transition-all duration-300 group">
+          <!-- Card 4: Tank Top Billabong Since 1973 (VENDIDO) -->
+          <div class="product-card border border-slate-800 rounded-2xl overflow-hidden bg-slate-950/60 flex flex-col justify-between shadow-lg opacity-75 group">
             <div class="p-4">
-              <div class="relative h-64 sm:h-72 bg-slate-900 rounded-xl flex flex-col items-center justify-center p-2 mb-3 border border-slate-800 overflow-hidden select-none cursor-pointer" onclick="openModal('frane_billa.jpg', 'Tank Top Billabong')">
-                <img id="preview-4" src="frane_billa.jpg" alt="Tank Top Billabong" class="w-full h-full object-contain rounded-lg group-hover:scale-105 transition-transform duration-300" onerror="this.classList.add('hidden'); document.getElementById('placeholder-4').classList.remove('hidden');" />
+              <div class="relative h-64 sm:h-72 bg-slate-900 rounded-xl flex flex-col items-center justify-center p-2 mb-3 border border-slate-800 overflow-hidden select-none cursor-pointer" onclick="openModal('frane_billa.jpg', 'Tank Top Billabong - VENDIDO')">
+                <span class="absolute top-2 left-2 z-10 bg-red-600 text-white font-black text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-md shadow-md">VENDIDO</span>
+                <img id="preview-4" src="frane_billa.jpg" alt="Tank Top Billabong" class="w-full h-full object-contain rounded-lg grayscale" onerror="this.classList.add('hidden'); document.getElementById('placeholder-4').classList.remove('hidden');" />
                 <div class="absolute bottom-2 right-2 bg-slate-900/80 text-amber-400 p-2 rounded-xl opacity-80 group-hover:opacity-100 transition-opacity border border-slate-700 shadow-lg flex items-center gap-1.5 text-xs font-bold">
                   <i class="fa-solid fa-magnifying-glass-plus"></i> Ampliar
                 </div>
@@ -192,17 +192,17 @@
                   <span class="text-xs font-bold uppercase tracking-wide text-slate-500">Imagen no disponible</span>
                 </div>
               </div>
-              <h3 class="font-bold text-white text-lg group-hover:text-amber-400 transition-colors">Tank Top Billabong "Since 1973"</h3>
-              <p class="text-xs text-slate-400 font-medium mt-1">Verde Oliva • Esqueleto Playero</p>
+              <h3 class="font-bold text-slate-400 text-lg line-through">Tank Top Billabong "Since 1973"</h3>
+              <p class="text-xs text-slate-500 font-medium mt-1">Verde Oliva • Esqueleto Playero</p>
               <div class="mt-3 flex items-center justify-between text-xs">
-                <span class="bg-slate-800 px-3 py-1 rounded-lg text-slate-300 font-bold border border-slate-700">Talla L</span>
-                <span class="text-emerald-400 font-bold flex items-center gap-1"><i class="fa-solid fa-circle-check"></i> Nuevo c/etiqueta</span>
+                <span class="bg-slate-800 px-3 py-1 rounded-lg text-slate-500 font-bold border border-slate-700">Talla L</span>
+                <span class="text-red-400 font-bold flex items-center gap-1"><i class="fa-solid fa-circle-xmark"></i> Agotado</span>
               </div>
             </div>
             <div class="p-3 bg-slate-900 border-t border-slate-800/80 flex items-center justify-between gap-2">
-              <div class="text-amber-400 font-black text-base">$25 <span class="text-xs text-slate-400 font-normal">/ €27 (BCV)</span></div>
-              <button onclick="sendWhatsApp('Tank Top Billabong Since 1973', 'L', '$25 / €27 BCV')" class="bg-emerald-600 hover:bg-emerald-500 text-white px-3 py-1.5 rounded-xl text-xs font-bold transition-all shadow-md flex items-center gap-1.5 cursor-pointer">
-                <i class="fa-brands fa-whatsapp text-sm"></i> Pedir
+              <div class="text-slate-500 font-black text-base line-through">$25</div>
+              <button disabled class="bg-slate-800 text-slate-500 px-3 py-1.5 rounded-xl text-xs font-bold border border-slate-700 cursor-not-allowed flex items-center gap-1.5">
+                <i class="fa-solid fa-ban text-sm"></i> No Disponible
               </button>
             </div>
           </div>
@@ -221,15 +221,15 @@
                 </div>
               </div>
               <h3 class="font-bold text-white text-lg group-hover:text-amber-400 transition-colors">Franelas Volcom (Set)</h3>
-              <p class="text-xs text-slate-400 font-medium mt-1">Blanco (L) / Marino & Verde (M)</p>
+              <p class="text-xs text-slate-400 font-medium mt-1">Blanco, Azul Marino & Verde</p>
               <div class="mt-3 flex items-center justify-between text-xs">
-                <span class="bg-slate-800 px-3 py-1 rounded-lg text-slate-300 font-bold border border-slate-700">Tallas M / L</span>
+                <span class="bg-slate-800 px-3 py-1 rounded-lg text-slate-300 font-bold border border-slate-700">Tallas L & M</span>
                 <span class="text-emerald-400 font-bold flex items-center gap-1"><i class="fa-solid fa-circle-check"></i> Nuevos</span>
               </div>
             </div>
             <div class="p-3 bg-slate-900 border-t border-slate-800/80 flex items-center justify-between gap-2">
-              <div class="text-amber-400 font-black text-base">$28 <span class="text-xs text-slate-400 font-normal">/ €30 (BCV) c/u</span></div>
-              <button onclick="sendWhatsApp('Franela Volcom', 'M / L', '$28 / €30 BCV c/u')" class="bg-emerald-600 hover:bg-emerald-500 text-white px-3 py-1.5 rounded-xl text-xs font-bold transition-all shadow-md flex items-center gap-1.5 cursor-pointer">
+              <div class="text-amber-400 font-black text-base">$28 <span class="text-xs text-slate-400 font-normal">c/u</span></div>
+              <button onclick="sendWhatsApp('Franela Volcom', 'L/M', '$28 c/u')" class="bg-emerald-600 hover:bg-emerald-500 text-white px-3 py-1.5 rounded-xl text-xs font-bold transition-all shadow-md flex items-center gap-1.5 cursor-pointer">
                 <i class="fa-brands fa-whatsapp text-sm"></i> Pedir
               </button>
             </div>
@@ -256,8 +256,8 @@
               </div>
             </div>
             <div class="p-3 bg-slate-900 border-t border-slate-800/80 flex items-center justify-between gap-2">
-              <div class="text-amber-400 font-black text-base">$28 <span class="text-xs text-slate-400 font-normal">/ €30 (BCV)</span></div>
-              <button onclick="sendWhatsApp('Remera Lee Script', 'M', '$28 / €30 BCV')" class="bg-emerald-600 hover:bg-emerald-500 text-white px-3 py-1.5 rounded-xl text-xs font-bold transition-all shadow-md flex items-center gap-1.5 cursor-pointer">
+              <div class="text-amber-400 font-black text-base">$28</div>
+              <button onclick="sendWhatsApp('Remera Lee Script', 'M', '$28')" class="bg-emerald-600 hover:bg-emerald-500 text-white px-3 py-1.5 rounded-xl text-xs font-bold transition-all shadow-md flex items-center gap-1.5 cursor-pointer">
                 <i class="fa-brands fa-whatsapp text-sm"></i> Pedir
               </button>
             </div>
@@ -284,8 +284,8 @@
               </div>
             </div>
             <div class="p-3 bg-slate-900 border-t border-slate-800/80 flex items-center justify-between gap-2">
-              <div class="text-amber-400 font-black text-base">$20 <span class="text-xs text-slate-400 font-normal">/ €22 (BCV)</span></div>
-              <button onclick="sendWhatsApp('Franela Florida Gymnastics', 'M', '$20 / €22 BCV')" class="bg-emerald-600 hover:bg-emerald-500 text-white px-3 py-1.5 rounded-xl text-xs font-bold transition-all shadow-md flex items-center gap-1.5 cursor-pointer">
+              <div class="text-amber-400 font-black text-base">$20</div>
+              <button onclick="sendWhatsApp('Franela Florida Gymnastics', 'M', '$20')" class="bg-emerald-600 hover:bg-emerald-500 text-white px-3 py-1.5 rounded-xl text-xs font-bold transition-all shadow-md flex items-center gap-1.5 cursor-pointer">
                 <i class="fa-brands fa-whatsapp text-sm"></i> Pedir
               </button>
             </div>
@@ -326,8 +326,8 @@
               </div>
             </div>
             <div class="p-3 bg-slate-900 border-t border-slate-800/80 flex items-center justify-between gap-2">
-              <div class="text-amber-400 font-black text-base">$25 <span class="text-xs text-slate-400 font-normal">/ €27 (BCV)</span></div>
-              <button onclick="sendWhatsApp('Gorra Camionera Billabong', 'Regulable', '$25 / €27 BCV')" class="bg-emerald-600 hover:bg-emerald-500 text-white px-3 py-1.5 rounded-xl text-xs font-bold transition-all shadow-md flex items-center gap-1.5 cursor-pointer">
+              <div class="text-amber-400 font-black text-base">$25</div>
+              <button onclick="sendWhatsApp('Gorra Camionera Billabong', 'Regulable', '$25')" class="bg-emerald-600 hover:bg-emerald-500 text-white px-3 py-1.5 rounded-xl text-xs font-bold transition-all shadow-md flex items-center gap-1.5 cursor-pointer">
                 <i class="fa-brands fa-whatsapp text-sm"></i> Pedir
               </button>
             </div>
@@ -354,8 +354,8 @@
               </div>
             </div>
             <div class="p-3 bg-slate-900 border-t border-slate-800/80 flex items-center justify-between gap-2">
-              <div class="text-amber-400 font-black text-base">$15 <span class="text-xs text-slate-400 font-normal">/ €17 (BCV)</span></div>
-              <button onclick="sendWhatsApp('Gorro de Lana Beanie', 'Única', '$15 / €17 BCV')" class="bg-emerald-600 hover:bg-emerald-500 text-white px-3 py-1.5 rounded-xl text-xs font-bold transition-all shadow-md flex items-center gap-1.5 cursor-pointer">
+              <div class="text-amber-400 font-black text-base">$15</div>
+              <button onclick="sendWhatsApp('Gorro de Lana Beanie', 'Única', '$15')" class="bg-emerald-600 hover:bg-emerald-500 text-white px-3 py-1.5 rounded-xl text-xs font-bold transition-all shadow-md flex items-center gap-1.5 cursor-pointer">
                 <i class="fa-brands fa-whatsapp text-sm"></i> Pedir
               </button>
             </div>
@@ -375,11 +375,12 @@
         </h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
 
-          <!-- Card 10 -->
-          <div class="product-card border border-slate-800 rounded-2xl overflow-hidden bg-slate-950/60 hover:bg-slate-950 flex flex-col justify-between shadow-lg hover:shadow-2xl hover:border-amber-500/50 transition-all duration-300 group">
+          <!-- Card 10: Short Deportivo RBX Training (VENDIDO) -->
+          <div class="product-card border border-slate-800 rounded-2xl overflow-hidden bg-slate-950/60 flex flex-col justify-between shadow-lg opacity-75 group">
             <div class="p-4">
-              <div class="relative h-64 sm:h-72 bg-slate-900 rounded-xl flex flex-col items-center justify-center p-2 mb-3 border border-slate-800 overflow-hidden select-none cursor-pointer" onclick="openModal('rbx_gris.jpg', 'Short Deportivo RBX Training')">
-                <img id="preview-10" src="rbx_gris.jpg" alt="Short RBX" class="w-full h-full object-contain rounded-lg group-hover:scale-105 transition-transform duration-300" onerror="this.classList.add('hidden'); document.getElementById('placeholder-10').classList.remove('hidden');" />
+              <div class="relative h-64 sm:h-72 bg-slate-900 rounded-xl flex flex-col items-center justify-center p-2 mb-3 border border-slate-800 overflow-hidden select-none cursor-pointer" onclick="openModal('rbx_gris.jpg', 'Short Deportivo RBX Training - VENDIDO')">
+                <span class="absolute top-2 left-2 z-10 bg-red-600 text-white font-black text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-md shadow-md">VENDIDO</span>
+                <img id="preview-10" src="rbx_gris.jpg" alt="Short RBX" class="w-full h-full object-contain rounded-lg grayscale" onerror="this.classList.add('hidden'); document.getElementById('placeholder-10').classList.remove('hidden');" />
                 <div class="absolute bottom-2 right-2 bg-slate-900/80 text-amber-400 p-2 rounded-xl opacity-80 group-hover:opacity-100 transition-opacity border border-slate-700 shadow-lg flex items-center gap-1.5 text-xs font-bold">
                   <i class="fa-solid fa-magnifying-glass-plus"></i> Ampliar
                 </div>
@@ -388,17 +389,17 @@
                   <span class="text-xs font-bold uppercase tracking-wide text-slate-500">Imagen no disponible</span>
                 </div>
               </div>
-              <h3 class="font-bold text-white text-lg group-hover:text-amber-400 transition-colors">Short Deportivo RBX Training</h3>
-              <p class="text-xs text-slate-400 font-medium mt-1">Gris Claro • Secado Rápido</p>
+              <h3 class="font-bold text-slate-400 text-lg line-through">Short Deportivo RBX Training</h3>
+              <p class="text-xs text-slate-500 font-medium mt-1">Gris Claro • Secado Rápido</p>
               <div class="mt-3 flex items-center justify-between text-xs">
-                <span class="bg-slate-800 px-3 py-1 rounded-lg text-slate-300 font-bold border border-slate-700">Talla M</span>
-                <span class="text-emerald-400 font-bold flex items-center gap-1"><i class="fa-solid fa-circle-check"></i> Nuevo c/etiqueta</span>
+                <span class="bg-slate-800 px-3 py-1 rounded-lg text-slate-500 font-bold border border-slate-700">Talla M</span>
+                <span class="text-red-400 font-bold flex items-center gap-1"><i class="fa-solid fa-circle-xmark"></i> Agotado</span>
               </div>
             </div>
             <div class="p-3 bg-slate-900 border-t border-slate-800/80 flex items-center justify-between gap-2">
-              <div class="text-amber-400 font-black text-base">$30 <span class="text-xs text-slate-400 font-normal">/ €32 (BCV)</span></div>
-              <button onclick="sendWhatsApp('Short Deportivo RBX Training', 'M', '$30 / €32 BCV')" class="bg-emerald-600 hover:bg-emerald-500 text-white px-3 py-1.5 rounded-xl text-xs font-bold transition-all shadow-md flex items-center gap-1.5 cursor-pointer">
-                <i class="fa-brands fa-whatsapp text-sm"></i> Pedir
+              <div class="text-slate-500 font-black text-base line-through">$30</div>
+              <button disabled class="bg-slate-800 text-slate-500 px-3 py-1.5 rounded-xl text-xs font-bold border border-slate-700 cursor-not-allowed flex items-center gap-1.5">
+                <i class="fa-solid fa-ban text-sm"></i> No Disponible
               </button>
             </div>
           </div>
@@ -425,8 +426,8 @@
               </div>
             </div>
             <div class="p-3 bg-slate-900 border-t border-slate-800/80 flex items-center justify-between gap-2">
-              <div class="text-amber-400 font-black text-base">$35 <span class="text-xs text-slate-400 font-normal">/ €37 (BCV)</span></div>
-              <button onclick="sendWhatsApp('Short Leg3nd Athletic', 'M', '$35 / €37 BCV')" class="bg-emerald-600 hover:bg-emerald-500 text-white px-3 py-1.5 rounded-xl text-xs font-bold transition-all shadow-md flex items-center gap-1.5 cursor-pointer">
+              <div class="text-amber-400 font-black text-base">$35</div>
+              <button onclick="sendWhatsApp('Short Leg3nd Athletic', 'M', '$35')" class="bg-emerald-600 hover:bg-emerald-500 text-white px-3 py-1.5 rounded-xl text-xs font-bold transition-all shadow-md flex items-center gap-1.5 cursor-pointer">
                 <i class="fa-brands fa-whatsapp text-sm"></i> Pedir
               </button>
             </div>
@@ -467,8 +468,8 @@
               </div>
             </div>
             <div class="p-3 bg-slate-900 border-t border-slate-800/80 flex items-center justify-between gap-2">
-              <div class="text-amber-400 font-black text-base">$20 <span class="text-xs text-slate-400 font-normal">/ €22 (BCV) c/u</span></div>
-              <button onclick="sendWhatsApp('Remeras Hot Wheels / Cars', 'S / M / L', '$20 / €22 BCV c/u')" class="bg-emerald-600 hover:bg-emerald-500 text-white px-3 py-1.5 rounded-xl text-xs font-bold transition-all shadow-md flex items-center gap-1.5 cursor-pointer">
+              <div class="text-amber-400 font-black text-base">$20 <span class="text-xs text-slate-400 font-normal">c/u</span></div>
+              <button onclick="sendWhatsApp('Remeras Hot Wheels / Cars', 'S / M / L', '$20 c/u')" class="bg-emerald-600 hover:bg-emerald-500 text-white px-3 py-1.5 rounded-xl text-xs font-bold transition-all shadow-md flex items-center gap-1.5 cursor-pointer">
                 <i class="fa-brands fa-whatsapp text-sm"></i> Pedir
               </button>
             </div>
@@ -494,7 +495,7 @@
   <script>
     function openModal(imgSrc, title) {
       const modal = document.getElementById('image-modal');
-      const modalImg = document.getElementById('modal-img');
+      modalImg = document.getElementById('modal-img');
       const modalCaption = document.getElementById('modal-caption');
       
       modalImg.src = imgSrc;
