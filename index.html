@@ -365,7 +365,7 @@
         </div>
       </section>
 
-      <!-- Categoria 3: Shorts -->
+     <!-- Categoria 3: Shorts -->
       <section class="category-section" data-category="Shorts">
         <h2 class="text-xl sm:text-2xl font-extrabold text-white border-b-2 border-amber-500/80 pb-3 mb-6 flex items-center justify-between">
           <span class="flex items-center gap-3">
@@ -376,12 +376,12 @@
         </h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
 
-          <!-- Card 10: Short Deportivo RBX (VENDIDO) -->
+          <!-- Card 10: Short RBX (VENDIDO) -->
           <div class="product-card border border-slate-800 rounded-2xl overflow-hidden bg-slate-950/60 flex flex-col justify-between shadow-lg opacity-75 group">
             <div class="p-4">
-              <div class="relative h-64 sm:h-72 bg-slate-900 rounded-xl flex flex-col items-center justify-center p-2 mb-3 border border-slate-800 overflow-hidden select-none cursor-pointer" onclick="openModal('rbx_gris.jpg', 'Short Deportivo RBX Training - VENDIDO')">
+              <div class="relative h-64 sm:h-72 bg-slate-900 rounded-xl flex flex-col items-center justify-center p-2 mb-3 border border-slate-800 overflow-hidden select-none cursor-pointer" onclick="openModal('Short_rbx.jpeg', 'Short Deportivo RBX Training - VENDIDO')">
                 <span class="absolute top-2 left-2 z-10 bg-red-600 text-white font-black text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-md shadow-md">VENDIDO</span>
-                <img id="preview-10" src="rbx_gris.jpg" alt="Short RBX" class="w-full h-full object-contain rounded-lg grayscale" onerror="this.classList.add('hidden'); document.getElementById('placeholder-10').classList.remove('hidden');" />
+                <img id="preview-10" src="Short_rbx.jpeg" alt="Short Deportivo RBX Training" class="w-full h-full object-contain rounded-lg grayscale" onerror="this.classList.add('hidden'); document.getElementById('placeholder-10').classList.remove('hidden');" />
                 <div class="absolute bottom-2 right-2 bg-slate-900/80 text-amber-400 p-2 rounded-xl opacity-80 group-hover:opacity-100 transition-opacity border border-slate-700 shadow-lg flex items-center gap-1.5 text-xs font-bold">
                   <i class="fa-solid fa-magnifying-glass-plus"></i> Ampliar
                 </div>
@@ -398,7 +398,7 @@
               </div>
             </div>
             <div class="p-3 bg-slate-900 border-t border-slate-800/80 flex items-center justify-between gap-2">
-              <div class="text-slate-500 font-black text-xs line-through">$30 USD / €32 Tasa BCV</div>
+              <div class="text-slate-500 font-black text-xs line-through">$35 USD / €37 Tasa BCV</div>
               <button disabled class="bg-slate-800 text-slate-500 px-3 py-1.5 rounded-xl text-xs font-bold border border-slate-700 cursor-not-allowed flex items-center gap-1.5">
                 <i class="fa-solid fa-ban text-sm"></i> No Disponible
               </button>
@@ -433,6 +433,9 @@
               </button>
             </div>
           </div>
+
+        </div>
+      </section>
 
       <!-- Categoria 4: Colección Infantil -->
       <section class="category-section" data-category="Colección Infantil">
@@ -480,25 +483,19 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-slate-950 text-slate-400 p-6 sm:p-8 text-center text-xs sm:text-sm border-t border-slate-800 space-y-3">
-      <div class="flex flex-wrap justify-center gap-6 text-amber-400 font-bold text-xs uppercase tracking-wider">
-        <span><i class="fa-solid fa-mobile-screen"></i> Pago Móvil</span>
-        <span><i class="fa-solid fa-building-columns"></i> Transferencia</span>
-        <span><i class="fa-solid fa-money-bill-wave"></i> Efectivo</span>
-      </div>
-      <p class="text-slate-500">Pide tus prendas directamente enviando un mensaje por WhatsApp o guardando la imagen del producto.</p>
+    <footer class="bg-slate-950 border-t border-slate-800/80 p-6 text-center text-xs text-slate-500">
+      <p>© 2026 Catálogo Exclusivo • Todos los productos son 100% originales.</p>
     </footer>
-
   </div>
 
+  <!-- Scripts de Modal y Filtros -->
   <script>
-    function openModal(imgSrc, title) {
+    function openModal(imgSrc, captionText) {
       const modal = document.getElementById('image-modal');
       const modalImg = document.getElementById('modal-img');
       const modalCaption = document.getElementById('modal-caption');
-      
       modalImg.src = imgSrc;
-      modalCaption.innerHTML = `<i class="fa-solid fa-tag text-amber-400"></i> ${title}`;
+      modalCaption.textContent = captionText;
       modal.classList.remove('hidden');
       document.body.style.overflow = 'hidden';
     }
@@ -506,46 +503,37 @@
     function closeModal() {
       const modal = document.getElementById('image-modal');
       modal.classList.add('hidden');
-      document.body.style.overflow = 'auto';
+      document.body.style.overflow = '';
     }
 
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeModal();
+    });
+
     function filterProducts() {
-      const searchVal = document.getElementById('search-input').value.toLowerCase();
-      const categoryVal = document.getElementById('category-filter').value;
-      
+      const searchTerm = document.getElementById('search-input').value.toLowerCase();
+      const selectedCategory = document.getElementById('category-filter').value;
       const sections = document.querySelectorAll('.category-section');
-      
+
       sections.forEach(section => {
-        const categoryMatch = (categoryVal === 'all' || section.dataset.category === categoryVal);
-        let visibleCount = 0;
-        
+        const category = section.getAttribute('data-category');
+        const categoryMatch = (selectedCategory === 'all' || selectedCategory === category);
         const cards = section.querySelectorAll('.product-card');
+        let visibleCards = 0;
+
         cards.forEach(card => {
           const text = card.textContent.toLowerCase();
-          const searchMatch = text.includes(searchVal);
-          
-          if (categoryMatch && searchMatch) {
-            card.classList.remove('hidden');
-            visibleCount++;
+          if (categoryMatch && text.includes(searchTerm)) {
+            card.style.display = '';
+            visibleCards++;
           } else {
-            card.classList.add('hidden');
+            card.style.display = 'none';
           }
         });
 
-        if (visibleCount > 0) {
-          section.classList.remove('hidden');
-        } else {
-          section.classList.add('hidden');
-        }
+        section.style.display = visibleCards > 0 ? '' : 'none';
       });
     }
-
-    document.addEventListener('keydown', function(event) {
-      if (event.key === 'Escape') {
-        closeModal();
-      }
-    });
   </script>
-
 </body>
 </html>
